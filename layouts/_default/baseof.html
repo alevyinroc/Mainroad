@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="{{ .Site.Language.Lang }}">
 <head>
+	{{ if .Site.Params.gtm_id}}{{- partial "gtm.html" . }}{{ end }}
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,6 +46,7 @@
 	{{- end }}
 </head>
 <body class="body">
+	{{ if .Site.Params.gtm_id}}<noscript><iframe src="//www.googletagmanager.com/ns.html?id={{ .Site.Params.gtm_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>{{ end }}
 	<div class="container container--outer">
 		{{ partial "header" . }}
 		<div class="wrapper flex">
