@@ -48,7 +48,7 @@
 <body class="body">
 	{{ if .Site.Params.gtm_id}}<noscript><iframe src="//www.googletagmanager.com/ns.html?id={{ .Site.Params.gtm_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>{{ end }}
 	<div class="container container--outer">
-		{{ partial "header" . }}
+		{{ block "header" . }}{{ partial "header.html" . }}{{ end }}
 		<div class="wrapper flex">
 			<div class="primary">
 			{{ block "main" . }}
@@ -59,9 +59,9 @@
 				{{ end }}
 			{{ end }}
 			</div>
-			{{ partial "sidebar.html" . }}
+			{{ block "sidebar" . }}{{ partial "sidebar.html" . }}{{ end }}
 		</div>
-		{{ partial "footer" . }}
+		{{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
 	</div>
 <script async defer src="{{ "js/menu.js" | relURL }}"></script>
 {{ range .Site.Params.customJS -}}
