@@ -1,0 +1,17 @@
+{{ $authors := .Params.authors }}
+{{ if $authors }}
+<p class="post-authors">
+    {{ range $i, $slug := $authors -}}
+    {{ if $i }}, {{ end -}}
+    {{ $ap := site.GetPage (printf "authors/%s/_index.md" $slug) }}
+    {{ if not $ap }}
+    {{ $ap = site.GetPage (printf "authors/%s" $slug) }}
+    {{ end }}
+    {{ if $ap }}
+    <a href="{{ $ap.RelPermalink }}">{{ $ap.Title }}</a>
+    {{ else }}
+    <a href="{{ printf " /authors/%s/" (urlize $slug) | relURL }}">{{ (replace $slug "-" " ") | title }}</a>
+    {{ end }}
+    {{ end }}
+</p>
+{{ end }}
