@@ -53,8 +53,8 @@ theme = "mainroad"
 ```toml
 baseurl = "/"
 title = "Mainroad"
-languageCode = "en-us"
-paginate = "10" # Number of posts per page
+defaultContentLanguage = "en"
+pagination.pagerSize = 10
 theme = "mainroad"
 disqusShortname = "" # DEPRECATED! Use .Services.Disqus.Shortname
 googleAnalytics = "" # DEPRECATED! Use .Services.googleAnalytics.ID
@@ -63,11 +63,6 @@ googleAnalytics = "" # DEPRECATED! Use .Services.googleAnalytics.ID
   shortname = "" # Enable Disqus by entering your Disqus shortname
 [services.googleAnalytics]
   ID = "" # Enable Google Analytics by entering your tracking ID
-
-[Author] # Used in authorbox
-  name = "John Doe"
-  bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
-  avatar = "img/avatar.png"
 
 [Params]
   description = "John Doe's Personal blog about everything" # Site description. Used in meta description
@@ -88,6 +83,11 @@ googleAnalytics = "" # DEPRECATED! Use .Services.googleAnalytics.ID
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
   customCSS = ["css/custom.css"] # Include custom CSS files
   customJS = ["js/custom.js"] # Include custom JS files
+
+  [Params.author]
+    name = "John Doe"
+    bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
+    avatar = "img/avatar.png"
 
   # DEPRECATED PARAMS
   subtitle = "" # Deprecated in favor of .Site.Params.logo.subtitle
